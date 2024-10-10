@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-title',
@@ -9,10 +9,11 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   ],
   templateUrl: './title.component.html',
   styles: `
-    :host {
-      display: block;
-    }
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TitleComponent { }
+export class TitleComponent { 
+
+  title = input.required<string>()
+
+}
