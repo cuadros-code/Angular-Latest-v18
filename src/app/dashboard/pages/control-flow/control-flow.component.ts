@@ -19,6 +19,10 @@ export default class ControlFlowComponent {
   public showContent = signal(false)
   public grade = signal<Grade>("A")
 
+  public techs =  signal(["Angular", "React", "Vue", "Astro"])
+  public techs2 =  signal([])
+
+
   toggleContent() {
     this.showContent.update( value => !value)
   }

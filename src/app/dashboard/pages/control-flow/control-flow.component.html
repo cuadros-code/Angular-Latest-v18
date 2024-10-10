@@ -1,6 +1,6 @@
 <section class="grid grid-cols-1 md:grid-cols-2 gap-3">
   <div class="bg-white rounded shadow p-10">
-
+    <h2 class="text-2xl font-bold">&#64;if &#64;else</h2>
     <h2 class="text-2xl font-bold mb-5">if: {{ showContent() }}</h2>
 
     <button 
@@ -19,6 +19,7 @@
   </div>
 
   <div class="bg-white rounded shadow p-10">
+    <h2 class="text-2xl font-bold">&#64;switch &#64;case &#64;default</h2>
     <h2>Grade: {{ grade() }}</h2>
     @switch ( grade() ) {
       @case ("A") {
@@ -55,6 +56,30 @@
     >
       Change F
     </button>
-
   </div>
+
+
+  <div class="bg-white rounded shadow p-10">
+    <h2 class="text-2xl font-bold">&#64;for</h2>
+    <ul>
+      @for (tech of techs(); track tech; let idx = $index, e = $even, first = $first) {
+        <li>{{1 + 1}} {{tech}}</li>
+      }
+    </ul>
+  </div>
+
+  <div class="bg-white rounded shadow p-10">
+    <h2 class="text-2xl font-bold">&#64;for &#64;empty</h2>
+
+    <ul>
+      @for (tech of techs2(); track $index ) {
+        <li>{{tech}}</li>
+      } @empty {
+        <li>List Empty</li>
+      }
+    </ul>
+    
+  </div>
+  
+
 </section>
