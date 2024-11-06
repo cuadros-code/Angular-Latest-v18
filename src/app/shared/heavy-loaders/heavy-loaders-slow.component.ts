@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-heavy-loaders-slow',
@@ -8,7 +8,21 @@ import { Component } from '@angular/core';
     CommonModule,
   ],
   template: `
-    <h1>Loader Slow</h1>
+    <section [ngClass]="['w-full h-[600px]', cssClass()]">
+      Loader Slow
+    </section>
   `
 })
-export class HeavyLoadersSlowComponent { }
+export class HeavyLoadersSlowComponent {
+
+  cssClass = input.required<string>()
+
+  constructor() {
+    
+    const start = Date.now();
+    while (Date.now() - start < 3000) {}
+    console.log("Heavy Loaders Slow");
+
+  }
+
+}
