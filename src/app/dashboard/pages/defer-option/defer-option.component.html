@@ -1,11 +1,10 @@
 <app-title title="Defer Option"></app-title>
 
-<section class="grid grid-cols-1">
+<section>
   
   <h1 class="text-xl">Interaction</h1>
-  <hr class="my-2">
 
-  @defer (on interaction) {
+  @defer ( on interaction ) {
     <app-heavy-loaders-fast cssClass="bg-blue-500 h-20">
       <span>On Interaction</span>
     </app-heavy-loaders-fast>
@@ -15,4 +14,83 @@
     </div>
   }
 
+</section>
+<hr class="my-2">
+
+<section class="mt-8">
+  <h1 class="text-xl">Interaction (Button)</h1>
+  <button
+    #button
+    class="bg-blue-500 text-white p-2 rounded-md my-2" 
+  >
+    Click Me
+  </button>
+
+  @defer ( on interaction(button) ) {
+    <app-heavy-loaders-fast cssClass="bg-blue-500 h-20">
+      <span>On Interaction</span>
+    </app-heavy-loaders-fast>
+  } @placeholder {
+    <div class="w-full h-20 bg-purple-100">
+      Placeholder Content
+    </div>
+  }
+</section>
+
+<section class="mt-8">
+  <h1 class="text-xl">Interaction hover</h1>
+
+  @defer ( on hover ) {
+    <app-heavy-loaders-fast cssClass="bg-blue-500 h-20">
+      <span>On Interaction Hover</span>
+    </app-heavy-loaders-fast>
+  } @placeholder {
+    <div class="w-full h-20 bg-purple-100">
+      Placeholder Content
+    </div>
+  }
+
+</section>
+
+<section class="mt-8">
+  <h1 class="text-xl">Immediate</h1>
+
+  @defer ( on immediate ) {
+    <app-heavy-loaders-fast cssClass="bg-blue-500 h-20">
+      <span>On Immediate</span>
+    </app-heavy-loaders-fast>
+  } @placeholder {
+    <div class="w-full h-20 bg-purple-100">
+      Placeholder Content
+    </div>
+  }
+</section>
+
+<section class="mt-8">
+  <h1 class="text-xl">Timer</h1>
+
+  @defer ( on timer(1000) ) {
+    <app-heavy-loaders-fast cssClass="bg-green-500 h-20">
+      <span>On Timer</span>
+    </app-heavy-loaders-fast>
+  } @placeholder {
+    <div class="w-full h-20 bg-purple-600">
+      Placeholder Content
+    </div>
+  }
+</section>
+
+
+<section class="mt-8">
+  <h1 class="text-xl">Timer</h1>
+
+  @defer ( on hover; prefetch on idle ) {
+    <app-heavy-loaders-fast cssClass="bg-green-500 h-20">
+      <span>On Hover, idle</span>
+    </app-heavy-loaders-fast>
+  } @placeholder {
+    <div class="w-full h-20 bg-purple-600">
+      Placeholder Content
+    </div>
+  }
 </section>
